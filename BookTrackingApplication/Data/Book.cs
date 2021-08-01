@@ -19,7 +19,7 @@ namespace BookTrackingApplication.Data
         public string Title { get; set; }
 
 
-        [Key]
+        
         [StringLength(100, MinimumLength = 5, ErrorMessage = "This needs to be longer.")]
         [Display(Name = "Author", Description = "Author")]
         [Required(ErrorMessage = "Author is Required", AllowEmptyStrings = false)]

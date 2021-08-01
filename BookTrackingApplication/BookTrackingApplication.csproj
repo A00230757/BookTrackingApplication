@@ -4,4 +4,12 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Data\Color.cs" />
+    <Compile Remove="Data\Customer.cs" />
+    <Compile Remove="Data\Material.cs" />
+    <Compile Remove="Data\Media.cs" />
+    <Compile Remove="Data\Product.cs" />
+  </ItemGroup>
+
 </Project>

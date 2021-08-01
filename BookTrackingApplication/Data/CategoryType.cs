@@ -11,14 +11,14 @@ namespace BookTrackingApplication.Data
         [Key]
         [StringLength(80, MinimumLength = 1)]
         [Display(Name = "Category Type")]
-        [RegularExpression("[A-Za-z]")]
+        /*[RegularExpression("[A-Za-z]")]*/
         public string Type { get; set; }
 
 
         [StringLength(60, MinimumLength = 2)]
         [Display(Name = "Category Type Name", Description = "Category Type  Name")]
         [Required(ErrorMessage = "Category Type Name is Required", AllowEmptyStrings = false)]
-        [RegularExpression("[A-Za-z]")]
+      /*  [RegularExpression("[A-Za-z]")]*/
         public string Name { get; set; }
     }
 }

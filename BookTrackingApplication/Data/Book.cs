@@ -10,7 +10,7 @@ namespace BookTrackingApplication.Data
     {
         [Key]
         [StringLength(13, MinimumLength = 13, ErrorMessage = "This needs to be of length 13.")]
-        [RegularExpression("[0-9]{13}$")]
+        /*[RegularExpression("[0-9]{13}$")]*/
         [Required]
         public string ISBN { get; set; }
 
@@ -23,7 +23,7 @@ namespace BookTrackingApplication.Data
         [StringLength(100, MinimumLength = 5, ErrorMessage = "This needs to be longer.")]
         [Display(Name = "Author", Description = "Author")]
         [Required(ErrorMessage = "Author is Required", AllowEmptyStrings = false)]
-        [RegularExpression("[A-Za-z]")]
+    /*    [RegularExpression("[A-Za-z]")]*/
         public string Author { get; set; }
 
 

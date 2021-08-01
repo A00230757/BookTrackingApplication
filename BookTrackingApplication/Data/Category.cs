@@ -13,7 +13,8 @@ namespace BookTrackingApplication.Data
         [StringLength(100, MinimumLength = 5, ErrorMessage = "This needs to be longer.")]
         [Display(Name = "Name Token", Description = "Category  Name")]
         [Required(ErrorMessage = "Nake Token is Required", AllowEmptyStrings = false)]
-        [RegularExpression("[0-9A-Za-z]")]
+    /*    [RegularExpression("[0-9A-Za-z]")]*/
+
         public string NameToken { get; set; }
 
 

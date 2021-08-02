@@ -20,8 +20,10 @@ namespace BookTrackingApplication.Pages.CategoryPages
             _context = context;
         }
 
-        [BindProperty]
+        [FromForm]
         public Category Category { get; set; }
+
+        public IEnumerable<SelectListItem> CategoryType { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
@@ -31,6 +33,18 @@ namespace BookTrackingApplication.Pages.CategoryPages
             }
 
             Category = await _context.Category.FirstOrDefaultAsync(m => m.NameToken == id);
+            List<SelectListItem> categorytypeList = _context.CategoryType.Select(
+               CategoryType => new SelectListItem()
+               {
+                   Value = CategoryType.Type
+                   ,
+                   Text = CategoryType.Name
+                   ,
+                   Selected = false
+               }
+               ).ToList();
+
+            CategoryType = new List<SelectListItem>(categorytypeList);
 
             if (Category == null)
             {

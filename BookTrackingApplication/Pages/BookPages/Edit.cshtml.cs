@@ -20,8 +20,10 @@ namespace BookTrackingApplication.Pages.BookPages
             _context = context;
         }
 
-        [BindProperty]
+        [FromForm]
         public Book Book { get; set; }
+
+        public IEnumerable<SelectListItem> Category { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
@@ -31,6 +33,18 @@ namespace BookTrackingApplication.Pages.BookPages
             }
 
             Book = await _context.Book.FirstOrDefaultAsync(m => m.ISBN == id);
+            List<SelectListItem> categoryList = _context.Category.Select(
+               Category => new SelectListItem()
+               {
+                   Value = Category.NameToken
+                   ,
+                   Text = Category.Decription
+                   ,
+                   Selected = false
+               }
+               ).ToList();
+
+            Category = new List<SelectListItem>(categoryList);
 
             if (Book == null)
             {
